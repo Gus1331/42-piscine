@@ -1,1 +1,1 @@
-ifconfig | grep ether | cut -c18-31
+ifconfig | grep ether | awk '{print$2}'
