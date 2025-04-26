@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gustaoli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/23 11:47:50 by gustaoli          #+#    #+#             */
-/*   Updated: 2025/04/23 17:07:56 by gustaoli         ###   ########.fr       */
+/*   Created: 2025/04/24 13:35:14 by gustaoli          #+#    #+#             */
+/*   Updated: 2025/04/25 18:05:32 by gustaoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *scr, unsigned int n);
+char	*ft_strlowcase(char *str);
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strlowcase(char *str)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (i < n && src[i] != '\0')
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
+		if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			str[i] = str[i] + 32;
+		}
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (str);
 }
 /*
 int	main()
 {
-	char src[] = "42";
-	char dest[] = "spspspspspspspsp";
+	char	output[] = "ECOLE fORTy TwO";
 
-	ft_strncpy(dest, src, 2);
-	printf("%s\n", dest);
+	ft_strlowcase(output);
+	printf("%s", output);
 }
 */
