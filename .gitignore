@@ -4,3 +4,4 @@ ssh*
 *-t*/
 *-f*/
 *test*
+*.out
