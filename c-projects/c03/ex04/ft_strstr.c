@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gustaoli <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gustaoli <gustaoli@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 18:08:51 by gustaoli          #+#    #+#             */
-/*   Updated: 2025/04/29 18:08:54 by gustaoli         ###   ########.fr       */
+/*   Updated: 2025/05/01 07:54:41 by gustaoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strstr(char *str, char *to_find)
 	to_find_len = ft_strlen(to_find);
 	while (*str)
 	{
-		if (*str == to_find[i])
+		if (*str == to_find[i] || !to_find[0])
 		{
 			i = 0;
 			while ((i < to_find_len) && (to_find[i] == str[i]))
@@ -55,7 +55,7 @@ int	ft_strlen(char *str)
 int	main(void)
 {
 	char	str0[23] = "Lorem Ipsum Dolor sit.";
-	char	str1[] = "Dolor";
+	char	str1[] = "";
 
 	printf("%s\n", ft_strstr(str0, str1));
 }
