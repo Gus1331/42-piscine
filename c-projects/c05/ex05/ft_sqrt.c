@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gustaoli <gustaoli@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 11:45:32 by gustaoli          #+#    #+#             */
-/*   Updated: 2025/05/08 10:21:29 by gustaoli         ###   ########.fr       */
+/*   Created: 2025/05/08 10:24:05 by gustaoli          #+#    #+#             */
+/*   Updated: 2025/05/08 14:07:24 by gustaoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_power(int nb, int power);
+int	ft_sqrt(int nb);
 
-int	ft_iterative_power(int nb, int power)
+int	ft_sqrt(int nb)
 {
-	int	res;
+	int	i;
 
-	if (power < 0)
-		return (0);
-	res = 1;
-	while (power > 0)
-	{
-		res *= nb;
-		power--;
-	}
-	return (res);
+	i = 0;
+	while (i * i < nb)
+		i++;
+	if (i * i == nb)
+		return (i);
+	return (0);
 }
 
 /*
-#include <stdio.h>l
+#include <stdio.h>
 int	main(void)
 {
-	printf("5^5 ->%d\n", ft_iterative_power(5, 5));
-	printf("4^-1 ->%d\n", ft_iterative_power(4, -1));
-	printf("0^0 ->%d\n", ft_iterative_power(0, 0));
+	printf("SQRT 9 -> %d\n", ft_sqrt(9));
+	printf("SQRT 144 -> %d\n", ft_sqrt(144));
+	printf("SQRT 13 -> %d\n", ft_sqrt(13));
 }
 */
