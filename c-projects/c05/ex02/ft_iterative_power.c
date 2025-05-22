@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gustaoli <gustaoli@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 15:55:58 by gustaoli          #+#    #+#             */
-/*   Updated: 2025/05/08 10:09:08 by gustaoli         ###   ########.fr       */
+/*   Created: 2025/05/06 11:45:32 by gustaoli          #+#    #+#             */
+/*   Updated: 2025/05/08 10:21:29 by gustaoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+int	ft_iterative_power(int nb, int power);
 
-int	main(int argc, char **argv)
+int	ft_iterative_power(int nb, int power)
 {
-	(void)argc;
-	while (**argv)
+	int	res;
+
+	if (power < 0)
+		return (0);
+	res = 1;
+	while (power > 0)
 	{
-		write(1, *argv, 1);
-		(*argv)++;
+		res *= nb;
+		power--;
 	}
-	write(1, "\n", 1);
+	return (res);
 }
+
+/*
+#include <stdio.h>l
+int	main(void)
+{
+	printf("5^5 ->%d\n", ft_iterative_power(5, 5));
+	printf("4^-1 ->%d\n", ft_iterative_power(4, -1));
+	printf("0^0 ->%d\n", ft_iterative_power(0, 0));
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: gustaoli <gustaoli@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 20:41:19 by gustaoli          #+#    #+#             */
-/*   Updated: 2025/05/05 10:37:51 by gustaoli         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:11:52 by gustaoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	ft_putnbr(int nb)
 	{
 		aux += nb;
 	}
-	write(1, &aux, 1);
+	if (nb == -2147483648)
+		write(1, "2147483648", 10);
+	else
+		write(1, &aux, 1);
 }
 
 void	ft_negative(int *nb)
@@ -45,11 +48,9 @@ void	ft_negative(int *nb)
 /*
 int	main(void)
 {
-	ft_putnbr(4242);
+	ft_putnbr(-2147483648);
 	write(1, "\n", 1);
-	ft_putnbr(2222);
-	write(1, "\n", 1);
-	ft_putnbr(4444);
+	ft_putnbr(4224);
 	write(1, "\n", 1);
 	ft_putnbr(-4242);
 	write(1, "\n", 1);

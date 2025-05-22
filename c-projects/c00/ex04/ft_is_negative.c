@@ -25,3 +25,15 @@ void	ft_is_negative(int n)
 	}
 	write(1, &s, 1);
 }
+
+/*
+int	main()
+{
+	int n;
+
+	n	= 42;
+	ft_is_negative(n);
+	n = -42;
+	ft_is_negative(n);
+}
+*/

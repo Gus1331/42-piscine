@@ -6,13 +6,13 @@
 /*   By: gustaoli <gustaoli@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 00:56:50 by gustaoli          #+#    #+#             */
-/*   Updated: 2025/05/05 12:00:30 by gustaoli         ###   ########.fr       */
+/*   Updated: 2025/05/06 11:34:03 by gustaoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	skip_spaces(char **str);
 int		is_num(char c);
-int		how_many_negatives(char *str);
+int		how_many_negatives(char **str);
 int		ft_atoi(char *str);
 
 int	ft_atoi(char *str)
@@ -21,12 +21,8 @@ int	ft_atoi(char *str)
 	int	res;
 
 	skip_spaces(&str);
-	negatives = how_many_negatives(str);
+	negatives = how_many_negatives(&str);
 	res = 0;
-	while (!is_num(*str))
-	{
-		str++;
-	}
 	while (is_num(*str))
 	{
 		res *= 10;
@@ -42,11 +38,7 @@ int	ft_atoi(char *str)
 
 void	skip_spaces(char **str)
 {
-	while (**str == ' '
-		|| **str == '\n'
-		|| **str == '\r'
-		|| **str == '\t'
-		|| **str == '\v')
+	while (**str == ' ' || (**str >= '\t' && **str <= '\f'))
 	{
 		(*str)++;
 	}
@@ -61,18 +53,18 @@ int	is_num(char c)
 	return (0);
 }
 
-int	how_many_negatives(char *str)
+int	how_many_negatives(char **str)
 {
 	int	negatives;
 
 	negatives = 0;
-	while (*str == '+' || *str == '-')
+	while (**str == '+' || **str == '-')
 	{
-		if (*str == '-')
+		if (**str == '-')
 		{
 			negatives++;
 		}
-		str++;
+		(*str)++;
 	}
 	return (negatives);
 }
@@ -81,6 +73,7 @@ int	how_many_negatives(char *str)
 #include <stdio.h>
 int	main(void)
 {
-	printf("%i\n", ft_atoi("     ---++--+1234ab567"));
+	printf("%i\n", ft_atoi("    \t -+---+-+324fd243"));
+	printf("%i\n", ft_atoi("  ---+--+1234ab567"));
 }
 */
